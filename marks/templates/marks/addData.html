@@ -1,0 +1,116 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>marks</title>
+
+    <link rel="stylesheet" href="{% static './main.css' %}" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat&family=Syncopate&family=Syne+Tactile&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+<form class="modal-content animate" action="" method="POST">
+    {% csrf_token %}
+    <div class="container">
+      <label><b>Insert Your Marks</b></label>
+      <input
+        type="text"
+        placeholder="Enter the name"
+        name="name"
+        required
+        autocomplete="off"
+      />
+
+      <input
+      type="text"
+      placeholder="Enter the Enroll Number"
+      name="enroll"
+      required
+      autocomplete="off"
+    />
+
+    <input
+    type="text"
+    placeholder="Enter the Roll Number"
+    name="roll"
+    required
+    autocomplete="off"
+  />
+
+  <input
+  type="text"
+  placeholder="UT1 Marks of MGT"
+  name="mgt"
+  required
+  autocomplete="off"
+/>
+
+<input
+  type="text"
+  placeholder="UT1 Marks of ETI"
+  name="eti"
+  required
+  autocomplete="off"
+/>
+
+
+<input
+type="text"
+placeholder="UT1 Marks of PWP"
+name="pwp"
+required
+autocomplete="off"
+/>
+
+<input
+type="text"
+placeholder="UT1 Marks of WBP"
+name="wbp"
+required
+autocomplete="off"
+/>
+
+<input
+type="text"
+placeholder="UT1 Marks of MAD"
+name="mad"
+required
+autocomplete="off"
+/>
+
+      
+
+      <div class="clearfix">
+        <button
+          type="reset"
+          onclick="document.getElementById('id01').style.display='none'"
+          class="cancelbtn"
+        >
+          Reset
+        </button>
+        <button
+          type="submit"
+          class="signupbtn"
+          style="background-color: cyan"
+        >
+          Add
+        </button>
+      </div>
+    </div>
+  </form>
+
+  
+  <footer>
+    <div class="guidance">Under the Guidance of Smt. Jyoti Hange Ma'am</div>
+  </footer>
+
+  <script src="{% static './menuopen.js' %}"></script>
+</body>
+</html>

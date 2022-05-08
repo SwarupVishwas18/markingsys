@@ -1,0 +1,151 @@
+{% load static %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static './index.css' %}" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat&family=Syncopate&family=Syne+Tactile&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+           td{
+            padding: .5rem;
+            text-align: center;
+        }
+        tbody tr:nth-child(odd){
+            background-color: #275950;
+            color: aliceblue;
+            /* color: aliceblue; */
+        }
+
+        tbody tr:nth-child(even){
+            background-color: #9BF2EA;
+            color: #260101;
+            /* color: aliceblue; */
+        }
+        thead, .subj{
+            background-color: #260101;
+            color: #9BF2EA;
+            font-size: large;
+        }
+        th, .subj{
+            padding-left: 2rem;
+            padding-right: 2rem;
+            padding-top: 1rem;
+            padding-bottom: 1rem;
+        }
+
+        #enroll{
+            padding: .4rem;
+            font-size: large;
+
+        }
+        form{
+            text-align: center;
+            margin: 1rem;
+        }
+        .headclass{
+            margin-bottom: 1rem;
+        }
+
+        button{
+            background-color: #275950;
+            color: aliceblue;
+            border: 1px solid #9BF2EA ;
+            padding: .7rem;
+            border-radius: .5rem;
+            transition: all 500ms ease-in-out;
+        }
+
+        button:hover{
+            background-color: #9BF2EA;
+            border: 1px solid #275950;
+            color: #260101;
+        }
+    </style>
+
+    <title>INDEX</title>
+</head>
+<body>
+    <div class="hero-image">
+        <a href="{% url 'marks:index' %}" class="title-a">
+          <div class="hero-text">
+            <h1>GPA MARKS DATABASE</h1>
+          </div>
+        </a>
+      </div>
+      <form action="" method="post">
+          {% csrf_token %}
+        <input type="text" name="enroll" width="25" id="enroll" placeholder="Enter Enrollment No">
+        <button type="submit">
+            SEARCH
+        </button>
+    </form>
+    <table>
+      <thead>
+          <th rowspan="2">Roll No</th>
+          <th rowspan="2">Name</th>
+          <th rowspan="2">Enrollment No</th>
+          <th colspan="5">Unit Test 1</th>
+          <th colspan="5">Unit Test 2</th>
+      </thead>
+      <tbody>
+          <tr class="headclass">
+              <td class="subj"></td>
+
+              <td class="subj"></td>
+              <td class="subj"></td>
+              <td class="subj">ETI</td>
+              <td class="subj">MGT</td>
+              <td class="subj">MAD</td>
+              <td class="subj">PWP</td>
+              <td class="subj">WBP</td>
+              <td class="subj">ETI</td>
+              <td class="subj">MGT</td>
+              <td class="subj">MAD</td>
+              <td class="subj">PWP</td>
+              <td class="subj">WBP</td>
+          </tr>
+
+          {% for mark in marks_data %}
+
+      <tr>
+          <td>{{mark.rollno}} </td>
+
+          <td>{{mark.name}}</td>
+          <td>{{mark.enroll}}</td>
+          <td>{{mark.eti1}}</td>
+          <td>{{mark.mgt1}}</td>
+          <td>{{mark.mad1}}</td>
+          <td>{{mark.pwp1}}</td>
+          <td>{{mark.wbp1}}</td>
+
+
+          
+          <td>{{mark.eti2}}</td>
+          <td>{{mark.mgt2}}</td>
+          <td>{{mark.mad2}}</td>
+          <td>{{mark.pwp2}}</td>
+          <td>{{mark.wbp2}}</td>
+      </tr>
+
+      {% endfor %}
+
+
+  </tbody>
+
+  </table>
+      <footer>
+        <div class="footer-title">&copy; gpa-marks-database 2022</div>
+        <div class="footer-subtitle">Project for Programming With Python</div>
+        <div class="guidance">Under the Guidance of Smt. Jyoti Hange Ma'am</div>
+      </footer>
+</body>
+</html>
